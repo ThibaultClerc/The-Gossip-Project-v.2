@@ -31,7 +31,7 @@ To clone and run this application, you'll need [Ruby 2.5.1](https://www.ruby-lan
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/ThibaultClerc/THP-day-26-The-Gossip-Project.git
+$ git clone https://github.com/ThibaultClerc/The-Gossip-Project-v.2.git
 
 # Start postgresql
 $ sudo service postgresql start
