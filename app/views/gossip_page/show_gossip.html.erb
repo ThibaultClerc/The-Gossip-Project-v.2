@@ -6,4 +6,4 @@
 
 <p>Potin : <%= Gossip.find(params[:id]).content %>
 
-<%= link_to "Profil de l'auteur", profile_path(User.find(params[:id])) %>
+<%= link_to "Profil de l'auteur", profile_path(Gossip.find(params[:id])) %>
