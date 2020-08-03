@@ -1,0 +1,9 @@
+<h1>Bienvenue sur la page de <%= Gossip.find(params[:name]).user.first_name%> <%= Gossip.find(params[:name]).user.last_name%> !</h1>
+
+
+<p> Nom : <%= Gossip.find(params[:name]).user.first_name%> </p>
+<p> Prénom : <%= Gossip.find(params[:name]).user.last_name%> </p>
+<p> Age : <%= Gossip.find(params[:name]).user.age%> </p>
+<p> Description : <%= Gossip.find(params[:name]).user.description%> </p>
+<p> Email : <%= Gossip.find(params[:name]).user.email%> </p>
+<p> Ville : <%= Gossip.find(params[:name]).user.city.city_name%> </p>

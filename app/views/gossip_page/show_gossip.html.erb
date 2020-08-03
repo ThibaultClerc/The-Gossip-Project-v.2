@@ -1,0 +1,9 @@
+<h1>Ceci est la page du Gossip n°<%= params[:id]%> !</h1>
+
+<p>Auteur : <%= Gossip.find(params[:id]).user.first_name %> <%= Gossip.find(params[:id]).user.last_name %></p>
+
+<p>Titre : <%= Gossip.find(params[:id]).title %>
+
+<p>Potin : <%= Gossip.find(params[:id]).content %>
+
+<%= link_to "Profil de l'auteur", profile_path(User.find(params[:id])) %>

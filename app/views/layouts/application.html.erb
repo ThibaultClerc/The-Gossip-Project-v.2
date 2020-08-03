@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheGossipProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="../../assets/stylesheets/bootstrap.min.css">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">The Gossip Project</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/team">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>
+  </div>
+</nav>
+
+
+
+ <%= yield %>
+
+ <footer class= "pt-md-3 border-top">
+    <div class="row mx-auto container mt-3">
+      <div class="col-6 col-md ">
+        <h5>THE GOSSIP PROJECT</h5>
+      </div>
+
+      <div class="col-6 col-md m text-right">
+      <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="/">The Gossip Project</a></li>
+          <li><a class="text-muted" href="/team">Team</a></li>
+          <li><a class="text-muted" href="/contact">Contact</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

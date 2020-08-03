@@ -1,0 +1,22 @@
+<div class="container-fluid">
+<div class="welcome mb-5 mt-5">
+<h1>Bienvenue sur la page d'accueil de The Gossip Project</h1>
+<h3 class="mt-4">Voici tous les potins :</h3>
+</div>
+
+
+<div class="card-deck">
+
+  <% Gossip.all.each do |gossip| %>
+    <div class="col-md-3 col-sm-4">
+      <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
+        <div class="card-header"> <a href="/<%=gossip.id%>"> Gossip n°<%= gossip.id %></a></div>
+        <div class="card-body">
+          <h4 class="card-title"><%= gossip.title %></h4>
+          <p class="card-text"><%= gossip.user.first_name %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
