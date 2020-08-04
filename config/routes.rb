@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/contact', to: 'contact#show_contacts'
   get '/:id', to: 'gossip_page#show_gossip', as:'gossip'
   get '/profile/:name', to: 'profile#user_description', as:'profile'
+  resources :gossips, only: [:new, :create]
 end

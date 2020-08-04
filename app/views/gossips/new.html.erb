@@ -1,0 +1,16 @@
+<h1>Coucou toi</h1>
+
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <%= label_tag 'Titre du potin' %>
+      <%= text_field_tag 'gossip_title'%>
+      <br /> <br />
+
+      <%= label_tag 'Le potin' %>
+      <%= text_field_tag 'gossip_content'%>
+      <br /> <br />
+    
+      <%= submit_tag "Créer le potin" %>
+
+<% end %>
