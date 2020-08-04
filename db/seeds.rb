@@ -97,4 +97,15 @@ end
 
 puts "#{PrivateMessage.all.count} messages privés créés"
 
+User.create!(
+  first_name: "Anonymous",
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  description: Faker::Quote.unique.famous_last_words,
+  city_id: rand(1..10),
+  age: rand(15..40)
+)
+
+puts "Anonymous user with 11 id created"
+
 puts "Seed done!"
