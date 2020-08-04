@@ -65,6 +65,7 @@ gem 'sinatra'
 gem 'table_print'
 gem 'activerecord-reset-pk-sequence'
 gem 'faker'
+gem 'rails_refactor'
 group :development do
   gem 'rails-erd'
 end
