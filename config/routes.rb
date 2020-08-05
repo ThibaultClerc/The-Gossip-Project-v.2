@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'profile/user_description'
   # get 'gossip_page/show_gossip'
-  get '/', to: 'home#welcoming'
+  get '/', to: 'gossips#index'
   get '/welcome/:first_name', to: 'welcome#welcome_message'
   get '/team', to: 'team#presentation'
   get '/contact', to: 'contact#show_contacts'

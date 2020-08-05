@@ -10,4 +10,6 @@
 <%= link_to "Profil de l'auteur", user_path(@user.id) %>
 <p> Ville du potin : <%= link_to "#{@user.city.city_name}", city_path(@user.city.id)%></p>
 
-<%= link_to "Modifier le potin", edit_gossip_path(@gossip.id)%>
+<%= link_to "Modifier le potin", edit_gossip_path(@gossip.id)%> </br>
+
+<%= link_to "Supprimer le potin", gossip_path, method: :delete, class: "btn btn-danger mt-3 mb-3"%>
