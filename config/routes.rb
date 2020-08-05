@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/welcome/:first_name', to: 'welcome#welcome_message'
   get '/team', to: 'team#presentation'
   get '/contact', to: 'contact#show_contacts'
-  get '/:id', to: 'gossip_page#show_gossip', as:'gossip'
-  get '/profile/:name', to: 'profile#user_description', as:'profile'
-  resources :gossips, only: [:new, :create]
+  # get '/:id', to: 'gossip_page#show_gossip', as:'gossip'
+  # get '/profile/:name', to: 'profile#user_description', as:'profile'
+  resources :gossips
+  resources :users
+  resources :cities, only: [:show]
+
 end
