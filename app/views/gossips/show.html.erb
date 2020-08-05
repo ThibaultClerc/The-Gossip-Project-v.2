@@ -1,56 +1,51 @@
-
-<h1>Ceci est la page du Gossip n°<%= params[:id]%> !</h1>
-
-<p>Auteur : <%= @gossip.user.first_name %> <%= @gossip.user.last_name %></p>
-
-<p>Titre : <%= @gossip.title %>
-
-<p>Potin : <%= @gossip.content %>
-
-<%= link_to "Profil de l'auteur", user_path(@user.id) %>
-<p> Ville du potin : <%= link_to "#{@user.city.city_name}", city_path(@user.city.id)%></p>
-
-<%= link_to "Modifier le potin", edit_gossip_path(@gossip.id)%> </br>
-
-<%= link_to "Supprimer le potin", gossip_path, method: :delete, class: "btn btn-danger mt-3 mb-3"%>
+<div class="container justify-content-center">
 
 
+<div class="jumbotron text-center">
+  <h1 class="display-3">Potin n°<%= params[:id]%></h1>
+  <p class="h3"><%= @gossip.title %></p>
+  <p class="lead"><%= @gossip.user.first_name %> <%= @gossip.user.last_name %></p>
+  
+  <hr class="my-4">
 
+  <blockquote class="blockquote ">
+  <p class="h4"><%= @gossip.content %></p>
+  </blockquote>
 
+  <p class="lead">
+    <%= link_to "Modifier le potin", edit_gossip_path(@gossip.id), class: "btn btn-warning mt-3 mb-3"%>
+    <%= link_to "Supprimer le potin", gossip_path, method: :delete, class: "btn btn-danger mt-3 mb-3"%>
+  </p>
+  
+</div>
 
-<h4> Ajouter un commentaire :</h4>
-
-<%= form_for @gossip do |f|%>
-
+<div>
+<form action= <%= gossips_comment_create_path %> method="POST">
   <div class="form-group">
-    <label>Contenu du commentaire</label>
-    <%= f.text_area :content, class:"form-control" %>
+  <label for="exampleInputEmail1">Ajouter un commentaire</label>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" class="form-control mb-3" id="content" name="content" placeholder="Entre ton commentaire...">
+  <input type="hidden" id="gossip_id" value="@id">
+  <input type="submit" value="Ajouter" class="btn btn-primary">
   </div>
+</form>
+</div>
 
-  <div class="form-group">
-    <button type="submit">Modifier le gossip</button>
-  </div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Auteur</th>
+      <th scope="col">Commentaire</th>
+    </tr>
+  </thead>
+<% @gossips_comments.each do |comment| %>
+
+    <tr class="table-light">
+      <th scope="row"><%= comment.author.first_name%></th>
+      <td><%= comment.content %></td>
+    </tr>
+  </tbody>
 <% end %>
-
-
-
-
-
-  <h4 class="mt-4">Voici tous les commentaires liés à ce potin :</h4>
+</table> 
 </div>
 
-<div class="card-deck">
-
-  <% @gossips_comments.each do |comment| %>
-    <div class="col-md-3 col-sm-4">
-      <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
-        
-        <div class="card-body">
-          <h4 class="card-title"><%= comment.author.first_name%></h4>
-          <p class="card-text"><%= comment.content %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-</div>

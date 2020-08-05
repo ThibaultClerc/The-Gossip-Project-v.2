@@ -1,10 +1,16 @@
-<div class="container-fluid">
+<div class="container">
 <div class="welcome mb-5 mt-5">
 
 
-<h1>Bienvenue sur la page d'accueil de The Gossip Project</h1>
-
-<h3><%= link_to "Créer un potin", new_gossip_path %></h3>
+<div class="jumbotron text-center">
+  <h1 class="display-1">The Gossip Project</h1>
+  <div class="row">
+  <h4> Bienvenue sur The Gossip Project, un site où vous pouvez raconter vos potins en gardant votre anonymat. Soyez cools quand-même !</h4>
+  </div>
+  <p class="h3 mt-4"><%= link_to "Créer un potin", new_gossip_path, class: "btn btn-dark mt-3" %></p>
+  <a href="https://en.wikipedia.org/wiki/Gossip"><img src="https://images.vexels.com/media/users/3/157869/isolated/preview/13916a3fd62c9de9a2fdb623b38c0d1a-bare-teeth-open-mouth-icon-by-vexels.png" alt="The Gossip Project" width="100"></a>
+  
+</div>
 
 
 
