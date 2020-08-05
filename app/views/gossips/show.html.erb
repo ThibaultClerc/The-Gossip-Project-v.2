@@ -1,0 +1,13 @@
+
+<h1>Ceci est la page du Gossip n°<%= params[:id]%> !</h1>
+
+<p>Auteur : <%= @gossip.user.first_name %> <%= @gossip.user.last_name %></p>
+
+<p>Titre : <%= @gossip.title %>
+
+<p>Potin : <%= @gossip.content %>
+
+<%= link_to "Profil de l'auteur", user_path(@user.id) %>
+<p> Ville du potin : <%= link_to "#{@user.city.city_name}", city_path(@user.city.id)%></p>
+
+<%= link_to "Modifier le potin", edit_gossip_path(@gossip.id)%>
