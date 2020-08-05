@@ -108,4 +108,14 @@ User.create!(
 
 puts "Anonymous user with 11 id created"
 
+50.times do
+  Comment.create!(
+    content: Faker::ChuckNorris.fact,
+    gossip_id: rand(1..20),
+    author_id: rand(1..10)
+  )
+end
+
+puts "#{Comment.count} commentaires créés"
+
 puts "Seed done!"

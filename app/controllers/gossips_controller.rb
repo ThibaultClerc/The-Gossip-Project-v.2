@@ -1,24 +1,38 @@
 class GossipsController < ApplicationController
   
   def index
-      @gossips = Gossip.order(updated_at: :desc)
+      @gossips = Gossip.all
   end
 
   def show
     @gossip = Gossip.find(params[:id])
     @user = Gossip.find(params[:id]).user
+
+    @gossips_comments = Gossip.find(params[:id]).comments
+
+    # @comment = Comment.new(comment_params)
+  #   @comment.author_id = 11
+  #   @comment.gossip_id = Gossip.find(params[:id]).id
+
+  #   if @comment.save
+  #     redirect_to gossip_path
+  #   else
+  #     render :show
+  #   end
   end
 
   def new
-    @gossip = Category.new
+    @gossip = Gossip.new
   end
 
   def create
-    @gossip = Gossip.create(gossip_params, user_id: 11) # avec xxx qui sont les données obtenues à partir du formulaire
-    if @gossip.save # essaie de sauvegarder en base @gossip
-      redirect_to gossips_path # si ça marche, il redirige vers la page d'index du site
+    @gossip = Gossip.new(gossip_params)
+    @gossip.user_id = 11 
+    if @gossip.save
+      
+      redirect_to gossips_path
     else
-      render :new# sinon, il render la view new (qui est celle sur laquelle on est déjà)
+      render :new
     end
   end
 
@@ -47,5 +61,9 @@ class GossipsController < ApplicationController
   def gossip_params
     params.require(:gossip).permit(:title, :content)
   end
+
+  # def comment_params
+  #   params.require(:gossip).permit(:content)
+  # end
 
 end
