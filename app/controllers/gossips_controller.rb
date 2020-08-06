@@ -30,15 +30,20 @@ class GossipsController < ApplicationController
     @gossip = Gossip.new(gossip_params)
     @gossip.user_id = current_user.id
     if @gossip.save
-      
       redirect_to gossips_path
     else
       render :new
     end
   end
 
+
+
   def edit
     @gossip = Gossip.find(params[:id])
+    if current_user.id == @gossip.user.id
+    else
+    redirect_to gossips_path
+    end
   end
 
   def update

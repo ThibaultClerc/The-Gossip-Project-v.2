@@ -14,7 +14,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand navbar-dark bg-primary">
+    <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top">
   <a class="navbar-brand" href="/">The Gossip Project</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/gossips/new">Ajouter un potin</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -42,7 +45,6 @@
     </form>
   </div>
 </nav>
-
 
 
  <%= yield %>

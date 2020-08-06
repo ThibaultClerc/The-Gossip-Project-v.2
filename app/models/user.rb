@@ -13,26 +13,26 @@ class User < ApplicationRecord
 
   validates :first_name,
     presence: true,
-    length: { in: 3..14 }
-    # format: {with: /[a-zA-Z-éàôê'ç^ÿ& ]/}
+    length: { in: 3..14 },
+    format: {with: /[a-z ,.'-]+/i}
 
   validates :last_name,
     presence: true,
-    length: { in: 3..25 }
-    # format: {with: /[a-zA-Z-éàôê'ç^ÿ& ]/}
+    length: { in: 3..25 },
+    format: {with: /[a-z ,.'-]+/i}
 
   validates :description,
-    presence: true
-    # length: { minimum: 140 }
+    presence: true,
+    length: { minimum: 140 }
 
   validates :email,
     presence: true,
     uniqueness: true,
-    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
+    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Entre une adresse mail correcte stp !" }
 
   validates :age,
     presence: true
-    # format: { with: /[1-99]/ }
+    # format: { with: /([1-9][8-9])/ }
 
     
 end
