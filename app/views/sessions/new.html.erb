@@ -1,13 +1,14 @@
-<div>
-<form action= <%= sessions_path %> method="POST">
+
+
+<form action= <%= sessions_path %> class="mt-5 form-signin text-center mx-auto user_form mb-5" method="POST">
+<a href="https://en.wikipedia.org/wiki/Gossip"><img src="https://images.vexels.com/media/users/3/157869/isolated/preview/13916a3fd62c9de9a2fdb623b38c0d1a-bare-teeth-open-mouth-icon-by-vexels.png" alt="The Gossip Project" width="100"></a>
+      <h1 class="h3 mb-3 font-weight-normal">Connecte-toi</h1>
   <div class="form-group">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label for="exampleInputEmail1">Email</label>
-  <input type="text" class="form-control mb-3" id="email" name="email" placeholder="Entre ton email">
-  <input type="password" class="form-control mb-3" id="password" name="password" placeholder="Entre ton mot de passe">
+  <input type="text" class="form-control mb-3" id="email" name="email" placeholder="Email">
+  <input type="password" class="form-control mb-3" id="password" name="password" placeholder="Mot de passe">
 
   <input type="submit" value="Ajouter" class="btn btn-primary">
   </div>
 </form>
-</div>

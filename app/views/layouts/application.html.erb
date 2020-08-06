@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="../../assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   </head>
 
@@ -32,15 +33,9 @@
       
 
       <% if current_user == nil%>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            S'inscrire / Se connecter
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to "S'inscrire", new_user_path, class: "dropdown_item" %>
-            <%= link_to "Connexion", new_session_path, class: "dropdown_item" %>
-          </div>
-        </div>
+            <%= link_to "S'inscrire", new_user_path, class: "btn btn-light mr-3" %>
+            <%= link_to "Connexion", new_session_path, class: "btn btn-primary" %>
+        
         <% else %>
           <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "btn btn-outline-danger" %>
         <% end %>
@@ -52,7 +47,7 @@
 
  <%= yield %>
 
- <footer class= "page-footer pt-md-3 border-top">
+ <footer class= "page-footer pt-md-3 border-top fixed-bottom">
     <div class="row mx-auto container mt-3 mb-3">
       <div class="col-6 col-md ">
         <h5>THE GOSSIP PROJECT</h5>
