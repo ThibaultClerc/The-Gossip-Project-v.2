@@ -29,12 +29,21 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <%= link_to "S'inscrire", new_user_path, class: "btn btn-info mr-3" %>
-      <%= link_to "Connexion", new_session_path, class: "btn btn-secondary mr-3" %>
-      <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "btn btn-outline-danger" %>
+      
 
-
-
+      <% if current_user == nil%>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            S'inscrire / Se connecter
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "S'inscrire", new_user_path, class: "dropdown_item" %>
+            <%= link_to "Connexion", new_session_path, class: "dropdown_item" %>
+          </div>
+        </div>
+        <% else %>
+          <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "btn btn-outline-danger" %>
+        <% end %>
     </form>
   </div>
 </nav>
@@ -43,7 +52,7 @@
 
  <%= yield %>
 
- <footer class= "pt-md-3 border-top">
+ <footer class= "page-footer pt-md-3 border-top">
     <div class="row mx-auto container mt-3 mb-3">
       <div class="col-6 col-md ">
         <h5>THE GOSSIP PROJECT</h5>
