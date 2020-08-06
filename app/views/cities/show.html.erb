@@ -1,9 +1,9 @@
-<h1>Ceci est la page de <%= @city.city_name%> !</h1>
 
-<h3 class="mt-4">Voici tous les potins :</h3>
+
+<h3 class="jumbotron mt-5 text-center">Voici tous les potins de <%= @city.city_name%>:</h3>
 </div>
 
-
+<div class="">
 <div class="card-deck">
 
   <% @gossips_of_city.each do |gossip| %>
@@ -17,5 +17,6 @@
       </div>
     </div>
   <% end %>
+</div>
 </div>
 </div>

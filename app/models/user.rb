@@ -22,8 +22,8 @@ class User < ApplicationRecord
     format: {with: /[a-z ,.'-]+/i}
 
   validates :description,
-    presence: true,
-    length: { minimum: 140 }
+    presence: true
+    # length: { minimum: 140 }
 
   validates :email,
     presence: true,

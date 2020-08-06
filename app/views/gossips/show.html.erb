@@ -4,7 +4,9 @@
 <div class="jumbotron text-center">
   <h1 class="display-3 mt-5">Potin n°<%= params[:id]%></h1>
   <p class="h3"><%= @gossip.title %></p>
-  <p class="lead"><%= @gossip.user.first_name %> <%= @gossip.user.last_name %></p>
+
+  <p class="h4"><%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@user.id)%>
+  <p class="h6"><%= link_to "de #{@user.city.city_name}", city_path(@user.city.id)%>
   
   <hr class="my-4">
 
