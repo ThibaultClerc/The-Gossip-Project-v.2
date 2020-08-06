@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   # get 'profile/user_description'
   # get 'gossip_page/show_gossip'
   get '/', to: 'gossips#index'
