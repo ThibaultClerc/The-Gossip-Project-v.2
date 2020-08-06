@@ -17,3 +17,7 @@
  .main_container {
    display: flex
  }
+
+ footer {
+  height: 100px;
+ }
