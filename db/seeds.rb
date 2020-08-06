@@ -120,7 +120,7 @@ end
 
 puts "#{Comment.count} commentaires créés"
 
-30.times do
+40.times do
   Like.create!(
     gossip_id: rand(1..20),
     user_id: rand(1..User.all.count)
@@ -128,7 +128,5 @@ puts "#{Comment.count} commentaires créés"
 end
 
 puts "#{Like.all.count} likes créés"
-
-User.create
 
 puts "Seed done!"
