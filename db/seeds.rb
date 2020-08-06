@@ -45,7 +45,8 @@ gossip_tags.reset_pk_sequence
     email: Faker::Internet.email,
     description: Faker::Quote.unique.famous_last_words,
     city_id: rand(1..10),
-    age: rand(15..40)
+    age: rand(15..40),
+    password: "azerty"
   )
 end
 
@@ -99,11 +100,12 @@ puts "#{PrivateMessage.all.count} messages privés créés"
 
 User.create!(
   first_name: "Anonymous",
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
+  last_name: "Clerc",
+  email: "anonymous@gmail.com",
   description: Faker::Quote.unique.famous_last_words,
   city_id: rand(1..10),
-  age: rand(15..40)
+  age: rand(15..40),
+  password: "azerty"
 )
 
 puts "Anonymous user with 11 id created"
@@ -117,5 +119,7 @@ puts "Anonymous user with 11 id created"
 end
 
 puts "#{Comment.count} commentaires créés"
+
+User.create
 
 puts "Seed done!"

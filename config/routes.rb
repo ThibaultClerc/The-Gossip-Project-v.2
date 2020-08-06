@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
   # get 'profile/user_description'
   # get 'gossip_page/show_gossip'
   get '/', to: 'gossips#index'
@@ -17,4 +14,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :index, :destroy]
   end
   post '/gossips/:id/comments', to: "comments#create", as:"gossips_comment_create"
+  resources :sessions, only: [:new, :create, :destroy]
+  
 end
