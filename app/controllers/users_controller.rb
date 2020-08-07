@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    
     @user = User.create(user_params)
     # @city = City.create(city_name: params[:city], zip_code: 94350)
     # @user.city_id = @city.id
@@ -38,7 +39,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :age, :description, :email, :password, :password_confirmation)
+    # params[:city] = 1
+    params.require(:user).permit(:first_name, :last_name, :age, :description, :email, :password, :password_confirmation, :city_id)
   end
 
 end
