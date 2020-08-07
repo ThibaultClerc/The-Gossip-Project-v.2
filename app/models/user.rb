@@ -34,5 +34,9 @@ class User < ApplicationRecord
     presence: true
     # format: { with: /([1-9][8-9])/ }
 
+    def remember(remember_token)
+      remember_digest = BCrypt::Password.create(remember_token)
+      self.update(remember_digest: remember_digest)
+    end
     
 end

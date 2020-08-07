@@ -20,6 +20,10 @@
     <%= f.text_field :age, class:"form-control", placeholder:"Age" %>
   </div>
 
+  <div class="form-group text-left form-signin">
+  <%= f.collection_select :city_id, City.all, :id, :city_name, prompt: true, placeholder: "Choisis ta ville" %>
+  </div>
+
    <div class="form-group">
     <%= f.text_area :description, class:"form-control", placeholder:"Description" %>
   </div>

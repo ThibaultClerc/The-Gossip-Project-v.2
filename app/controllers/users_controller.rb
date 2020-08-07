@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @city = City.all
   end
 
   def create
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
     # @city = City.create(city_name: params[:city], zip_code: 94350)
     # @user.city_id = @city.id
     # @user.user = User.find_by(id: session[:user_id])
+
     if @user.save
        flash[:success] = "Merci pour ton inscription !"
         redirect_to gossips_path
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
 
   def user_params
     # params[:city] = 1
-    params.require(:user).permit(:first_name, :last_name, :age, :description, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :age, :description, :email, :password, :password_confirmation, :city_id)
   end
 
 end

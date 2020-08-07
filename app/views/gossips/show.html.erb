@@ -6,7 +6,7 @@
   <p class="h3"><%= @gossip.title %></p>
 
   <p class="h4"><%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@user.id)%>
-  
+  <p class="h6"><%= link_to "de #{@user.city.city_name}", city_path(@user.city.id)%>
   
   <hr class="my-4">
 
