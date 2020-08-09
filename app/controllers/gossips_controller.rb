@@ -3,8 +3,8 @@ class GossipsController < ApplicationController
 
   def index
       @gossips = Gossip.all
-      @like = Like.new
-      @likes = Like.all
+      # @like = Like.new
+      # @likes = Like.all
   end
 
   def show

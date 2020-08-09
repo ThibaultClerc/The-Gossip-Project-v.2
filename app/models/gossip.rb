@@ -1,4 +1,6 @@
 class Gossip < ApplicationRecord
+  attr_accessor :likes_array_of_gossip
+
   belongs_to :user
   has_many :gossip_tags
   has_many :tags, through: :gossip_tags
@@ -12,5 +14,10 @@ class Gossip < ApplicationRecord
 
   validates :content,
     presence: true
+
+  def is_liked_by?(user)
+    self.likes.map(&:liker_id).include?(user.id)
+  end
+
 
 end
