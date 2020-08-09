@@ -1,37 +1,33 @@
 <div class="container">
-<div class="welcome mb-5 mt-5">
 
-
-<div class="jumbotron text-center">
-  <h1 class="display-1">The Gossip Project</h1>
-  <div class="row">
-  <h4> Bienvenue sur The Gossip Project, un site où vous pouvez raconter vos potins en gardant votre anonymat. Soyez cools quand-même !</h4>
+  <div class="welcome mb-5 mt-5">
+    <div class="jumbotron text-center">
+      <h1 class="display-1">The Gossip Project</h1>
+      <div class="row">
+      <h4> Bienvenue sur The Gossip Project, un site où vous pouvez raconter vos potins en gardant votre anonymat. Soyez cools quand-même !</h4>
+    </div>
+    <p class="h3 mt-4"><%= link_to "Créer un potin", new_gossip_path, class: "btn btn-dark mt-3" %></p>
+    <a href="https://en.wikipedia.org/wiki/Gossip"><img src="https://images.vexels.com/media/users/3/157869/isolated/preview/13916a3fd62c9de9a2fdb623b38c0d1a-bare-teeth-open-mouth-icon-by-vexels.png" alt="The Gossip Project" width="100"></a>
   </div>
-  <p class="h3 mt-4"><%= link_to "Créer un potin", new_gossip_path, class: "btn btn-dark mt-3" %></p>
-  <a href="https://en.wikipedia.org/wiki/Gossip"><img src="https://images.vexels.com/media/users/3/157869/isolated/preview/13916a3fd62c9de9a2fdb623b38c0d1a-bare-teeth-open-mouth-icon-by-vexels.png" alt="The Gossip Project" width="100"></a>
-  
-</div>
 
 <h2>Bienvenue sur ta session <%= current_user.first_name %> <%= current_user.last_name %> !</h2>
 
-
 <h3 class="mt-4">Voici tous les potins :</h3>
+
 </div>
 
-
 <div class="card-deck">
-
   <% @gossips.sort.each do |gossip| %>
     <div class="col-md-3 col-sm-4">
       <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
         <div class="card-header d-flex justify-content-between">
-        <a href="<%=gossip_path(gossip.id)%>"> Gossip n°<%= gossip.id %></a>
-        <% if gossip.is_liked_by?(current_user) %>
-          <a href="<%=likes_path%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/535/535183.svg"/></a>
-        <% else %>
-          <a href="<%=likes_path%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/1000/1000621.svg"/></a>
-          
-        <% end %>
+          <a href="<%=gossip_path(gossip.id)%>"> Gossip n°<%= gossip.id %></a>
+          <% if gossip.is_liked_by?(current_user) %>
+            <p> <%= gossip.get_like_id_by_user(current_user)%> </p>
+            <a href="<%=likes_path%>" method="DELETE" ><img width="25" src="https://image.flaticon.com/icons/svg/535/535183.svg"/></a>
+          <% else %>
+            <a href="<%=likes_path%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/1000/1000621.svg"/></a>
+          <% end %>
         </div>
         <div class="card-body">
           <h4 class="card-title"><%= gossip.title %></h4>
@@ -41,4 +37,5 @@
     </div>
   <% end %>
 </div>
+
 </div>

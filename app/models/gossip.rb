@@ -1,5 +1,4 @@
 class Gossip < ApplicationRecord
-  attr_accessor :likes_array_of_gossip
 
   belongs_to :user
   has_many :gossip_tags
@@ -19,5 +18,9 @@ class Gossip < ApplicationRecord
     self.likes.map(&:liker_id).include?(user.id)
   end
 
+  def get_like_id_by_user(liker)
+    like = self.likes.find_by! liker_id: liker.id
+    return like.id
+  end
 
-end
+ end
