@@ -14,14 +14,14 @@ class User < ApplicationRecord
   
 
   validates :first_name,
-    presence: true,
-    length: { in: 3..14 },
-    format: {with: /[a-z ,.'-]+/i}
+    presence: true
+    # length: { in: 3..14 },
+    # format: {with: /[a-z ,.'-]+/i}
 
   validates :last_name,
-    presence: true,
-    length: { in: 3..25 },
-    format: {with: /[a-z ,.'-]+/i}
+    presence: true
+    # length: { in: 3..25 },
+    # format: {with: /[a-z ,.'-]+/i}
 
   validates :description,
     presence: true
