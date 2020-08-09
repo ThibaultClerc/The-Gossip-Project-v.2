@@ -15,4 +15,11 @@ module SessionsHelper
     end
   end
 
+  def current_user_liked_that?(gossip)
+    gossip.is_liked_by?(current_user)
+  end
+
+  def get_like_of_current_user(gossip)
+    gossip.get_like_by_user(current_user)
+  end
 end

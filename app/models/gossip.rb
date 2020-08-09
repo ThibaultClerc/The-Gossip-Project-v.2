@@ -18,9 +18,8 @@ class Gossip < ApplicationRecord
     self.likes.map(&:liker_id).include?(user.id)
   end
 
-  def get_like_id_by_user(liker)
-    like = self.likes.find_by! liker_id: liker.id
-    return like.id
+  def get_like_by_user(liker)
+    self.likes.find_by! liker_id: liker.id
   end
 
  end
