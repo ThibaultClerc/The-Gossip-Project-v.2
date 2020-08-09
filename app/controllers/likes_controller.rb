@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    
+    @like = Like.find(params[:id])
   end
 
   def destroy

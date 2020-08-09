@@ -123,7 +123,7 @@ puts "#{Comment.count} commentaires créés"
 40.times do
   Like.create!(
     gossip_id: rand(1..20),
-    user_id: rand(1..User.all.count)
+    liker_id: rand(1..User.all.count)
   )
 end
 

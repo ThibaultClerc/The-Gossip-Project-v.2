@@ -26,22 +26,11 @@
       <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
         <div class="card-header d-flex justify-content-between">
         <a href="<%=gossip_path(gossip.id)%>"> Gossip n°<%= gossip.id %></a>
-        <% i = 0 %>
-        <% j = nil %>
         <%gossip.likes.each do |like|%>
-              <% j = like.id%>
-              <% if like.user_id != current_user.id%>
-                <% i = 1 %>
-              <%else%>
-                <% i = 2 %>
-              <%end%>
-        <%end%>
-        <% if i == 1 %>
-        <a href="<%=likes_path%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/1000/1000621.svg"/></a>
-          
-        <% elsif i == 2 %>
-        <a href="<%=like_path(j)%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/535/535183.svg"/></a>
-      
+            <% if gossip.likes.include?(like.liker_id) == current_user.id %>
+              <a href="<%=likes_path%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/1000/1000621.svg"/></a>
+            <% else %>
+              <a href="<%=like_path(gossip.likes.like.id)%>" method="POST" ><img width="25" src="https://image.flaticon.com/icons/svg/535/535183.svg"/></a>
         <%end%>
 
         </div>

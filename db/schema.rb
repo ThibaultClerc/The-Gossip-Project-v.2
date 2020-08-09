@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_124342) do
+ActiveRecord::Schema.define(version: 2020_08_09_102305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2020_08_07_124342) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "gossip_id"
-    t.bigint "user_id"
+    t.bigint "liker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gossip_id"], name: "index_likes_on_gossip_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["liker_id"], name: "index_likes_on_liker_id"
   end
 
   create_table "private_messages", force: :cascade do |t|
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_124342) do
     t.datetime "updated_at", null: false
     t.bigint "city_id"
     t.string "password_digest"
-    t.string "remember_digest"
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
+  add_foreign_key "gossips", "users"
   add_foreign_key "users", "cities"
 end
