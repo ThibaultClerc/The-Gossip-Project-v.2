@@ -5,7 +5,7 @@ class Gossip < ApplicationRecord
   has_many :tags, through: :gossip_tags
   has_many :authors, foreign_key: 'author_id', class_name: "User"
   has_many :comments
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   validates :title,
     presence: true
